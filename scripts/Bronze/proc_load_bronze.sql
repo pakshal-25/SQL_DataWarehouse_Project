@@ -1,3 +1,4 @@
+
 /*
 ==========================================================================================================
 Stored Procedure: load Bronze layer (source -> Bronze)
@@ -94,7 +95,7 @@ BEGIN
             TABLOCK
         )
         SET @end_time = GETDATE();
-        PRINT '>>LOADING DURATION' + CAST(DATEDIFF(second,@start_time,@end_time) as NVARCHAR) + 'seconds';
+        PRINT '>>LOADING DURATION' + CAST(DATEDIFF(SECOND,@start_time,@end_time) as NVARCHAR) + 'seconds';
         PRINT '>> ------------------';
 
 
@@ -111,7 +112,7 @@ BEGIN
             TABLOCK
         );
         SET @end_time = GETDATE();
-        PRINT '>> LOAD DURATION' + CAST(DATEDIFF(SECONDS,@start_time,@end_time) AS NVARCHAR)+ 'seconds';
+        PRINT '>> LOAD DURATION' + CAST(DATEDIFF(SECOND,@start_time,@end_time) AS NVARCHAR)+ 'seconds';
         PRINT'-----------';
 
         SET @start_time = GETDATE()
@@ -126,13 +127,13 @@ BEGIN
             TABLOCK
         );
         SET @end_time = GETDATE() 
-        PRINT '>> LOAD DURATION: ' + CAST(DATEDIFF(seocnd,@start_time,@end_time),NVARCHAR) + 'seconds';
+        PRINT '>> LOAD DURATION: ' + CAST(DATEDIFF(second,@start_time,@end_time) AS NVARCHAR) + 'seconds';
         PRINT '>>-----------------';
 
         SET @batch_end_time = GETDATE();
         PRINT '==============================';
         PRINT 'LOADING BRONZE LAYER IS COMPLETED';
-        PRINT 'TOTAL DURATION TIME: ' + CAST(DATEDIFF(seconds,@batch_start_time,@batch_end_time) as NVARCHAR) + 'seconds';
+        PRINT 'TOTAL DURATION TIME: ' + CAST(DATEDIFF(second,@batch_start_time,@batch_end_time) as NVARCHAR) + 'seconds';
         PRINT '========================='
     END TRY
     BEGIN CATCH
